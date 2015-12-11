@@ -16,24 +16,32 @@
     </div>
   </nav>
 
-      <div class="container">
+      <div class="row container">
       	<div class="row">
-			   <div class="col s6">
+			   <div class="col s12">
 
                 <h3>All Available Tracks {%if search != "" %} ({{search}}) {% endif %} </h3>
                  {%for track in tracks %}
                   {%if track.hidden == False or current_user.username == track.createdBy %}
                       <br>
                          <a href="{{ url_for('track.track_page', trackID=track.id) }}">
-                        <div class = "# white-text card-panel trackBox"> 
-                        <h4>{{track.trackName}}</h4>
-                        <ul>
-                          <li> Original Artist: {{track.originalArtist}}
-                          <li> Created by: {{track.createdBy}}
-                          {%if track.hidden%}
-                          <li> (Hidden Track)
-                          {%endif%}
-                        </ul> 
+                        <div class = "# white card-panel trackBox">   <div class="row">
+                          <div class="col s4">
+                          <img class="responsive-img right-align" src="/static/img/timshelcover.jpg">
+                          </div>
+
+                        <div class="blue-grey-text col s8">
+                          <h4>{{track.trackName}}</h4>
+                          <ul>
+                            <li> Original Artist: {{track.originalArtist}}
+                            <li> Created by: {{track.createdBy}}
+                            {%if track.hidden%}
+                            <li> Hidden Track
+                            {%endif%}
+                          </ul>
+                        </div>
+
+                      </div>
                       </div>
                       </a>
                   {%endif%}

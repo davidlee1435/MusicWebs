@@ -126,4 +126,9 @@ html {
     width: auto;
     margin: auto;
  }
+
+ .track-list {
+    background-image: url('../images/divbg.png');
+
+ }
  
